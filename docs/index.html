@@ -1,0 +1,335 @@
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="true">
+	<style>
+	/** 
+--------------------------------------------
+Card Flip
+--------------------------------------------
+Setup a mixin for your flip so you can include it into any element that has this or similar structure
+
+ <figure class="card"> <-- can be any class you need.
+  <div class="face front"></div> <- required classes
+  <div class="face back"> </div>  <- required classes
+ </figure>
+
+Supports arguments for Speed and Direction. 
+The direction you can specify using "x" "y" or "z"
+
+Use it by putting "@include flip();" in the parent element you want to flip.
+You can style the card however you want. Here are some examples. 
+
+*/
+	
+	* {
+		box-sizing: border-box;
+	}
+	
+	html {
+		margin: 0;
+		padding: 0;
+	}
+	
+	body {
+		font-family: Arial, Sans-Serif;
+		perspective: 1500px;
+		perspective-origin: 50% 50%;
+		background-color: #1a1a1a;
+		text-align: center;
+		margin: 0;
+		padding: 0;
+		width: 900px;
+		margin: 0 auto;
+	}
+	
+	.prodcards {
+		max-width: 1200px;
+		margin: 0 auto;
+		display: grid;
+		grid-gap: 1rem;
+	}
+	
+	@media (min-width: 900px) {
+		.prodcards {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	
+	@media (min-width: 1800px) {
+		.prodcards {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	
+	.card {
+		text-align: left;
+		position: relative;
+		transform-style: preserve-3d;
+		transition: transform 0.5s;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		cursor: pointer;
+		font-family: Arial, Sans-Serif;
+		width: 400px;
+		height: 600px;
+		color: white;
+		display: inline-block;
+		margin: 10px;
+	}
+	
+	.card.flip {
+		transform: rotateY(180deg);
+		transition: transform 0.5s;
+	}
+	
+	.card .face {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		bottom: 0px;
+		right: 0px;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		transform: translateZ(0.1px);
+	}
+	
+	.card .back {
+		transform: rotateY(180deg);
+	}
+	
+	.card .face {
+		border-radius: 10px;
+	}
+	
+	.card .front {
+		color: #ffffff;
+		background-color: #101010;
+	}
+	
+	.card .front .logo {
+		width: 100px;
+		padding: 10px;
+	}
+
+  .card .front .eco {
+    width: 100px;
+    float: right;
+    padding: 10px;
+  }
+	
+	.card .back {
+		font-size: 18px;
+		line-height: 1.4em;
+		background: url(http://imagesci.com/img/2013/12/space-stars-background-3245-hd-wallpapers.jpg) #333333;
+		background-size: cover;
+		color: #FFE81F;
+	}
+	
+	.card .back img {
+		width: 100%;
+		max-width: 100%;
+		height: auto;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		border-bottom: 3px double #FFE81F;
+	}
+	
+	.card .back .description {
+		padding: 30px;
+	}
+	
+	.card .back .logo {
+		position: absolute;
+		bottom: 10px;
+		right: 10px;
+		width: 100px;
+		padding: 10px;
+		border: none;
+	}
+	
+	.card h2 {
+		text-transform: uppercase;
+		font-size: 48px;
+		position: absolute;
+		bottom: 70px;
+		margin: 0;
+		line-height: 0.75em;
+		padding: 10px;
+	}
+	
+	.card h2 small {
+		font-size: 28px;
+	}
+	
+	.card cite {
+		position: absolute;
+		left: 0px;
+		bottom: 0px;
+		font-size: 0.595vw;
+		text-transform: uppercase;
+		padding: 20px;
+	}
+	
+	.card cite a {
+		color: white;
+	}
+	
+	.card cite a:visited {
+		text-decoration: none;
+		color: #aaaaaa;
+	}
+	
+	.leftside h2 {
+		font-size: 42px;
+		line-height: 0.90em;
+		bottom: 80px;
+	}
+	
+	.leftside .front {
+		background-image: url(eventstream-front.png);
+    background-repeat: no-repeat;
+		background-size: 100%;
+		background-position: 50% 50%;
+		transition: background 0.3s;
+	}
+	
+	.leftside .front:hover {
+		background-size: 200%;
+		background-position: 20% 30%;
+		transition: background 0.5s;
+	}
+	
+	.rightside .front {
+		background-image: url(cp4i-front.png);
+		background-size: 200%;
+		background-position: 25% 20%;
+		transition: background 0.3s;
+	}
+	
+	.rightside .front:hover {
+		background-size: 300%;
+		background-position: 50% 10%;
+		transition: background 0.5s;
+	}
+
+  .rightside h2 {
+		font-size: 42px;
+		line-height: 0.9em;
+		bottom: 80px;
+	}
+
+  .rightside h2 small {
+		font-size: 28px;
+		line-height: 1.75em;
+		bottom: 80px;
+	}
+	</style>
+	<script>
+	window.console = window.console || function(t) {};
+	</script>
+</head>
+
+<body>
+	<!-- 
+
+  To setup your own card, start with a class stucture like this.
+
+<div class="card"> <-- can be any element and class you need.
+  <div class="face front"></div> <- required classes
+  <div class="face back"> </div>  <- required classes
+ </div>
+
+-->
+	<div class="prodcards">
+
+    <!-- Event Streams -->
+		<div class="card leftside">
+			<div class="face front"> <img class="logo" src="logo.png" />
+				<h2><small>Event</small><br/>Streams</h2> <cite>
+    </cite> </div>
+			<div class="face back"> <img src="eventstream-back.jpeg" alt="Event Streams" />
+				<div class="description">Event streaming connects back-end systems and creates changing event streams to address data inaccessibility. New applications can subscribe to these event streams to build a local view of the data. Moving data closer to the application increases responsiveness.</div> <img class="logo" src="logo.png" /> </div>
+		</div>
+
+
+    <!-- Confluence for CP4I -->
+		<div class="card rightside">
+			<div class="face front"> <img class="logo" src="logo.png" /> <img class="eco" src="ecosystem.png" />
+				<h2><small>Confluent Platform</small><br/>Cloud Pak for Integration</h2> <cite>
+    </cite> </div>
+			<div class="face back"> <img src="confluent-back.png" />
+				<div class="description"> IBM is partnering with the leading data-in-motion solution provider, Confluent, to support a broad range of integration styles and use cases. Confluent Platform is an enterprise-ready distribution of Apache Kafka that unifies real-time and historical events, enabling organizations to build modern, data-in-motion applications. The solution includes IBM support for Confluent software.</div> <img class="logo" src="logo.png" /> </div>
+		</div>
+
+  <!-- DataPower Gateway Virtual Edition -->
+		<div class="card leftside">
+			<div class="face front"> <img class="logo" src="logo.png" />
+				<h2><small>DataPower Gateway</small><br/>Virtual Edition</h2> <cite>
+    </cite> </div>
+			<div class="face back"> <img style="height: 20%" src="ibmdatapower-back.jpeg" alt="Event Streams" />
+				<div class="description">IBM DataPower Gateway Virtual  Edition combines the DataPower virtual gateway with additional modules and the IBM DataPower Gateway Operations Dashboard for monitoring and management in one easy-to-acquire package.  It provides an extensible and modular architecture that provides enhanced security and integration capabilitie for mobile, API, and web workloads.  For developers, it allows them to have a dedicated copy of a DataPower appliance for development and unit testing.</div> <img class="logo" src="logo.png" /> </div>
+		</div>
+
+
+    <!-- DataPower Gateway Appliance -->
+		<div class="card rightside">
+			<div class="face front"> <img class="logo" src="logo.png" /> 
+				<h2><small>DataPower Gateway</small><br/>Appliance</h2> <cite>
+    </cite> </div>
+			<div class="face back"> <img style=" height: 20%" src="ibmdatapower-back.jpeg" />
+				<div class="description">A purpose-built security and integration platform for a full range of mobile, web, app programming interface (API), service-oriented architecture (SOA), B2B and cloud workloads in a single multichannel gateway.  It is an all-in-one DMZ-ready version with physical security for increased capacity and serviceability.  It provides security assurance, simplified integration, reduced cost and complexity while lowering the burden of troubleshooting by providing real-time visibility of transactions and centralized operations.</div> <img class="logo" src="logo.png" /> </div>
+		</div>
+
+  <!-- Spectrum Conductor -->
+		<div class="card leftside">
+			<div class="face front"> <img class="logo" src="logo.png" />
+				<h2><small>Spectrum</small><br/>Conductor</h2> <cite>
+    </cite> </div>
+			<div class="face back"> <img src="https://1.cms.s81c.com/sites/default/files/2021-07-13/event-streams-overview-leadspace.jpg" alt="Event Streams" />
+				<div class="description">Event streaming connects back-end systems and creates changing event streams to address data inaccessibility. New applications can subscribe to these event streams to build a local view of the data. Moving data closer to the application increases responsiveness.</div> <img class="logo" src="logo.png" /> </div>
+		</div>
+
+
+    <!-- Spectrum Symphony -->
+		<div class="card rightside">
+			<div class="face front"> <img class="logo" src="logo.png" />
+				<h2><small>Spectrum</small><br/>Symphony</h2> <cite>
+    </cite> </div>
+			<div class="face back"> <img src="confluent-back.png" />
+				<div class="description"> IBM is partnering with the leading data-in-motion solution provider, Confluent, to support a broad range of integration styles and use cases. Confluent Platform is an enterprise-ready distribution of Apache Kafka that unifies real-time and historical events, enabling organizations to build modern, data-in-motion applications. The solution includes IBM support for Confluent software.</div> <img class="logo" src="logo.png" /> </div>
+		</div>
+
+  <!-- Spectrum LSF -->
+		<div class="card leftside">
+			<div class="face front"> <img class="logo" src="logo.png" />
+				<h2><small>Spectrum</small><br/>LSF</h2> <cite>
+    </cite> </div>
+			<div class="face back"> <img src="https://1.cms.s81c.com/sites/default/files/2021-07-13/event-streams-overview-leadspace.jpg" alt="Event Streams" />
+				<div class="description">Event streaming connects back-end systems and creates changing event streams to address data inaccessibility. New applications can subscribe to these event streams to build a local view of the data. Moving data closer to the application increases responsiveness.</div> <img class="logo" src="logo.png" /> </div>
+		</div>
+
+
+    <!-- MQ  -->
+		<div class="card rightside">
+			<div class="face front"> <img class="logo" src="logo.png" />
+				<h2><small>MQ</small><br/>Cloud Pak for Integration</h2> <cite>
+    </cite> </div>
+			<div class="face back"> <img src="confluent-back.png" />
+				<div class="description"> IBM is partnering with the leading data-in-motion solution provider, Confluent, to support a broad range of integration styles and use cases. Confluent Platform is an enterprise-ready distribution of Apache Kafka that unifies real-time and historical events, enabling organizations to build modern, data-in-motion applications. The solution includes IBM support for Confluent software.</div> <img class="logo" src="logo.png" /> </div>
+		</div>
+	</div>
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+	<script id="rendered-js">
+	$(".card").click(function(e) {
+		$(e.currentTarget).toggleClass("flip");
+	});
+	</script>
+</body>
+
+</html>
