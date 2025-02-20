@@ -130,7 +130,7 @@ You can style the card however you want. Here are some examples.
 		line-height: 1.4em;
 		background: #333333;
 		background-size: cover;
-		color: #FFE81F;
+		color: #FFFFFF;
 	}
 	
 	.card .back img {
@@ -143,7 +143,7 @@ You can style the card however you want. Here are some examples.
 	}
 	
 	.card .back .description {
-		padding: 30px;
+		padding: 7px;
 	}
 	
 	.card .back .logo {
@@ -194,7 +194,7 @@ You can style the card however you want. Here are some examples.
 	}
 	
 	.leftside .front {
-		background-image: url(eventstream-front.png);
+		background-image: url(turbonomic-front.png);
     background-repeat: no-repeat;
 		background-size: 100%;
 		background-position: 50% 50%;
@@ -208,15 +208,16 @@ You can style the card however you want. Here are some examples.
 	}
 	
 	.rightside .front {
-		background-image: url(cp4i-front.png);
-		background-size: 200%;
-		background-position: 25% 20%;
+		background-image: url(instana-front.png);
+    background-repeat: no-repeat;
+		background-size: 100%;
+		background-position: 50% 50%;
 		transition: background 0.3s;
 	}
 	
 	.rightside .front:hover {
-		background-size: 300%;
-		background-position: 50% 10%;
+		background-size: 200%;
+		background-position: 20% 30%;
 		transition: background 0.5s;
 	}
 
@@ -230,6 +231,20 @@ You can style the card however you want. Here are some examples.
 		font-size: 28px;
 		line-height: 1.75em;
 		bottom: 80px;
+	}
+
+  .cloudy .front {
+		background-image: url(cloudability-front.png);
+    background-repeat: no-repeat;
+		background-size: 100%;
+		background-position: 50% 50%;
+		transition: background 0.3s;
+	}
+	
+	.cloudy .front:hover {
+		background-size: 200%;
+		background-position: 20% 30%;
+		transition: background 0.5s;
 	}
 	</style>
 	<script>
@@ -250,32 +265,47 @@ You can style the card however you want. Here are some examples.
 -->
 	<div class="prodcards">
 
-    <!-- Event Streams -->
+    <!-- IBM Turbonomic -->
 		<div class="card leftside">
 			<div class="face front"> <img class="logo" src="logo.png" />
-				<h2><small>Event</small><br/>Streams</h2> <cite>
+				<h2><small>IBM</small><br/>Turbonomic</h2> <cite>
     </cite> </div>
-			<div class="face back"> <img src="eventstream-back.jpeg" alt="Event Streams" />
-				<div class="description">Event streaming connects back-end systems and creates changing event streams to address data inaccessibility. New applications can subscribe to these event streams to build a local view of the data. Moving data closer to the application increases responsiveness.</div> <img class="logo" src="logo.png" /> </div>
+			<div class="face back"> <img src="eli5-back.jpeg" alt="IBM Turbonomic" />
+				<div class="description">
+        <ul><li>Applications need resources to function.  Stuff like compute, memory, storage, networking.</li>
+        <li>Applications eat resources in different ways that change all the time, making it hard to find the right size and creating waste</li>
+        <li>Changing resources automatically to the right amount, at the right time, to feed application needs will lower computer costs and waste </li>
+        <li>Turbonomic watches apps constantly and tunes their resources automatically to keep performance steady and waste low</li></ul>
+        </div> <img class="logo" src="logo.png" /> </div>
 		</div>
 
 
-    <!-- Confluence for CP4I -->
+    <!-- IBM Instana -->
 		<div class="card rightside">
-			<div class="face front"> <img class="logo" src="logo.png" /> <img class="eco" src="ecosystem.png" />
-				<h2><small>Confluent Platform</small><br/>Cloud Pak for Integration</h2> <cite>
+			<div class="face front"> <img class="logo" src="logo.png" /> 
+				<h2><small>IBM</small><br/>Instana Observability</h2> <cite>
     </cite> </div>
-			<div class="face back"> <img src="confluent-back.png" />
-				<div class="description"> IBM is partnering with the leading data-in-motion solution provider, Confluent, to support a broad range of integration styles and use cases. Confluent Platform is an enterprise-ready distribution of Apache Kafka that unifies real-time and historical events, enabling organizations to build modern, data-in-motion applications. The solution includes IBM support for Confluent software.</div> <img class="logo" src="logo.png" /> </div>
+			<div class="face back"> <img src="eli5-back.jpeg" alt="IBM Instana Observability"/>
+				<div class="description">
+        <ul><li>Measuring things helps make decisions</li>
+        <li>Customers are blind to app issues that happen fast and often, causing bad business outcomes</li>
+        <li>Capturing measurements more often detects errors quicker, better and allows faster fixing</li>
+        <li>Instana Observability helps customers keep app downtime small, fix bad performance quickly, make more money and keep users happy</li></ul>
+        </div> <img class="logo" src="logo.png" /> </div>
 		</div>
 
-  <!-- DataPower Gateway Virtual Edition -->
-		<div class="card leftside">
+  <!-- Cloudability -->
+		<div class="card cloudy">
 			<div class="face front"> <img class="logo" src="logo.png" />
-				<h2><small>DataPower Gateway</small><br/>Virtual Edition</h2> <cite>
+				<h2><small>IBM</small><br/>Cloudability</h2> <cite>
     </cite> </div>
-			<div class="face back"> <img style="height: 20%" src="ibmdatapower-back.jpeg" alt="Event Streams" />
-				<div class="description">IBM DataPower Gateway Virtual  Edition combines the DataPower virtual gateway with additional modules and the IBM DataPower Gateway Operations Dashboard for monitoring and management in one easy-to-acquire package.  It provides an extensible and modular architecture that provides enhanced security and integration capabilitie for mobile, API, and web workloads.  For developers, it allows them to have a dedicated copy of a DataPower appliance for development and unit testing.</div> <img class="logo" src="logo.png" /> </div>
+			<div class="face back"> <img src="eli5-back.jpeg" alt="IBM Cloudability" />
+				<div class="description">
+        <ul><li>Cloud waste is expensive and common, but can be lowered</li>
+        <li>Customers have few numbers and low awareness about cloud waste</li>
+        <li>Knowing where cloud waste exists allows control and reduction</li>
+        <li>Cloudability shows cloud value against cloud spend to help with decisions and definition of priorities</li></ul>
+        </div> <img class="logo" src="logo.png" /> </div>
 		</div>
 
 
