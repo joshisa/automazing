@@ -279,6 +279,20 @@ You can style the card however you want. Here are some examples.
 		background-position: 20% 30%;
 		transition: background 0.5s;
 	}
+
+  .kubecost .front {
+		background-image: url(kubecost-front.png);
+    background-repeat: no-repeat;
+		background-size: 100%;
+		background-position: 50% 50%;
+		transition: background 0.3s;
+	}
+	
+	.kubecost .front:hover {
+		background-size: 200%;
+		background-position: 20% 30%;
+		transition: background 0.5s;
+	}
 	</style>
 	<script>
 	window.console = window.console || function(t) {};
@@ -347,13 +361,20 @@ You can style the card however you want. Here are some examples.
 		</div>
 
 
-    <!-- DataPower Gateway Appliance -->
-		<div class="card rightside">
+    <!-- Kubecost -->
+		<div class="card kubecost">
 			<div class="face front"> <img class="logo" src="logo.png" /> 
-				<h2><small>DataPower Gateway</small><br/>Appliance</h2> <cite>
+				<h2><small>IBM</small><br/>Kubecost</h2> <cite>
     </cite> </div>
-			<div class="face back"> <img style=" height: 20%" src="ibmdatapower-back.jpeg" />
-				<div class="description">A purpose-built security and integration platform for a full range of mobile, web, app programming interface (API), service-oriented architecture (SOA), B2B and cloud workloads in a single multichannel gateway.  It is an all-in-one DMZ-ready version with physical security for increased capacity and serviceability.  It provides security assurance, simplified integration, reduced cost and complexity while lowering the burden of troubleshooting by providing real-time visibility of transactions and centralized operations.</div> <img class="logo" src="logo.png" /> </div>
+			<div class="face back"> <img style=" height: 20%" src="eli5-back.jpeg" />
+				<div class="description">
+        <ul><li>Kubernetes (container) waste is expensive and common, but can be lowered</li>
+        <li>Customers have few numbers and low awareness about container spend</li>
+        <li>Knowing where kubernetes waste exists allows control and reduction</li>
+        <li><a href="https://ibm.seismic.com/Link/Content/DCpQbmpbgqBJC8qVmDRBJ4cHJHHP" target="_blank">Kubecost</a> provides real-time container cost visibility and insights on any Kubernetes platform to help with lowering cost and waste</li>
+        <li><span class="emphasize">Do you run Kubernetes workloads today? How are you tracking your Kubernetes costs today? How many hours is it taking you to track all your Kubernetes spend? Are you under pressure to cut container costs?</span></li>
+        </ul>
+        </div> <img class="logo" src="logo.png" /> </div>
 		</div>
 
   <!-- Spectrum Conductor -->
@@ -390,7 +411,7 @@ You can style the card however you want. Here are some examples.
 			<div class="face front"> <img class="logo" src="logo.png" />
 				<h2><small>MQ</small><br/>Cloud Pak for Integration</h2> <cite>
     </cite> </div>
-			<div class="face back"> <img src="confluent-back.png" />
+			<div class="face back"> <img src="eli5-back.png" />
 				<div class="description"> IBM is partnering with the leading data-in-motion solution provider, Confluent, to support a broad range of integration styles and use cases. Confluent Platform is an enterprise-ready distribution of Apache Kafka that unifies real-time and historical events, enabling organizations to build modern, data-in-motion applications. The solution includes IBM support for Confluent software.</div> <img class="logo" src="logo.png" /> </div>
 		</div>
 	</div>
